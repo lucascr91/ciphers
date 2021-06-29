@@ -9,7 +9,7 @@ pub struct Caesar {
 pub trait Translate {
     fn encrypt(&self, message: &str) -> String;
     fn decrypt(&self, message: &str) -> String;
-    pri fn replace(&self, message: &str, mode: &str) -> String;
+    fn replace(&self, message: &str, mode: &str) -> String;
 }
 
 impl Translate for Caesar {
