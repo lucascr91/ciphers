@@ -7,7 +7,7 @@ This is a package in Rust that implements basics encryption algorithms. Details 
 | Name                   	| status     	|
 |------------------------	|------------	|
 | Caesar cipher          	|    done    	|
-| Transposition Cipher   	| to be done 	|
+| Transposition Cipher   	|   current   	|
 | File encrypting        	| to be done 	|
 | Affine Cipher          	| to be done 	|
 | Simple Substitution    	| to be done 	|
