@@ -9,7 +9,7 @@ This is a package in Rust that implements basics encryption algorithms. Details 
 | File encrypting        	| to be done 	|
 | Affine Cipher          	| to be done 	|
 | Simple Substitution    	| to be done 	|
-| Vigenère Cipher        	| being done 	|
+| Vigenère Cipher           |     done  	|
 | One-time Pad Cipher    	| to be done 	|
 | Generate Prime Numbers 	| to be done 	|
 | Public Key Cipher      	| to be done 	|

@@ -59,18 +59,20 @@ impl Translate for Vigenere {
         let mut translate: Vec<char> = Vec::new();
         let mut key_index = 0;
         let key = self.key.to_lowercase();
+        let message = message.to_lowercase();
     
         for symbol in message.chars() {
-            let index_letter = LETTERS.find(symbol.to_lowercase().collect::<Vec<_>>()[0]);
+            let index_letter = LETTERS.find(symbol);
             match index_letter {
-                Some(mut num) => {
+                Some(x) => {
+                    let mut num:i32 = x as i32;
                     if mode == "encrypt" {
-                        num+=LETTERS.find(key.chars().nth(key_index).unwrap()).unwrap();
+                        num+=LETTERS.find(key.chars().nth(key_index).unwrap()).unwrap() as i32;
                     } else if mode == "decrypt" {
-                        num-=LETTERS.find(key.chars().nth(key_index).unwrap()).unwrap();
+                        num-=LETTERS.find(key.chars().nth(key_index).unwrap()).unwrap() as i32;
                     }
-                    num%= LETTERS.chars().collect::<Vec<char>>().len();
-              
+                    num= (num).rem_euclid(LETTERS.chars().collect::<Vec<char>>().len() as i32);
+                    translate.push(LETTERS.chars().nth(num as usize).unwrap());
                     key_index+=1;
                     if key_index == (key.chars().collect::<Vec<char>>().len()) {
                         key_index = 0;
@@ -82,6 +84,6 @@ impl Translate for Vigenere {
             }
         }
         let result: String = translate.into_iter().collect();
-        return result
+        result
     }
 }
