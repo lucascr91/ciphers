@@ -71,10 +71,10 @@ impl Translate for Vigenere {
                     } else if mode == "decrypt" {
                         num-=LETTERS.find(key.chars().nth(key_index).unwrap()).unwrap() as i32;
                     }
-                    num= (num).rem_euclid(LETTERS.chars().collect::<Vec<char>>().len() as i32);
+                    num= (num).rem_euclid(LETTERS.len() as i32);
                     translate.push(LETTERS.chars().nth(num as usize).unwrap());
                     key_index+=1;
-                    if key_index == (key.chars().collect::<Vec<char>>().len()) {
+                    if key_index == (key.len()) {
                         key_index = 0;
                     }
                 }
