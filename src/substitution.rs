@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 const LETTERS: &str = "abcdefghijklmnopqrstuvwxyz";
 
 pub struct Caesar {
