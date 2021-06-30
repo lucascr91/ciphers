@@ -1,6 +1,6 @@
 ### Cyphers
 
-This is a package in Rust that implements basics encryption algorithms. Details on the the algorithms implemented can be found in this [book](http://inventwithpython.com/cracking/). Here is the complete list of algos and their respective status.
+This is a package in Rust that implements basics encryption algorithms. Details on the the algorithms implemented can be found in this [book](http://inventwithpython.com/cracking/). Here is the complete list of algos and their respective status of implementation.
 
 | Name                   	| status     	|
 |------------------------	|------------	|

@@ -1,11 +1,11 @@
-mod caesar;
+mod sub;
 
-use caesar::Translate;
-use caesar::Caesar;
+use sub::Translate;
+use sub::Vigenere;
 
 fn main() {
-    let cypher = Caesar {
-        key: 4
+    let cypher = Vigenere {
+        key: String::from("PIZZA")
     };
 
     let message = String::from("We do not learn, and that what we call learning is only a process of recollection.");

@@ -4,6 +4,10 @@ pub struct Caesar {
     pub key: i32
 }
 
+pub struct Vigenere {
+    pub key: String
+}
+
 pub trait Translate {
     fn encrypt(&self, message: &str) -> String;
     fn decrypt(&self, message: &str) -> String;
@@ -39,5 +43,45 @@ impl Translate for Caesar {
         }
         let translation: String = result.into_iter().collect();
         translation
+    }
+}
+
+impl Translate for Vigenere {
+    fn encrypt(&self, message: &str) -> String {
+        self.replace(message, "encrypt")
+    }
+
+    fn decrypt(&self, message: &str) -> String {
+        self.replace(message, "decrypt")
+    }
+
+    fn replace(&self, message: &str, mode: &str) -> String {
+        let mut translate: Vec<char> = Vec::new();
+        let mut key_index = 0;
+        let key = self.key.to_lowercase();
+    
+        for symbol in message.chars() {
+            let index_letter = LETTERS.find(symbol.to_lowercase().collect::<Vec<_>>()[0]);
+            match index_letter {
+                Some(mut num) => {
+                    if mode == "encrypt" {
+                        num+=LETTERS.find(key.chars().nth(key_index).unwrap()).unwrap();
+                    } else if mode == "decrypt" {
+                        num-=LETTERS.find(key.chars().nth(key_index).unwrap()).unwrap();
+                    }
+                    num%= LETTERS.chars().collect::<Vec<char>>().len();
+              
+                    key_index+=1;
+                    if key_index == (key.chars().collect::<Vec<char>>().len()) {
+                        key_index = 0;
+                    }
+                }
+                None =>  {
+                    translate.push(symbol)
+                }
+            }
+        }
+        let result: String = translate.into_iter().collect();
+        return result
     }
 }
