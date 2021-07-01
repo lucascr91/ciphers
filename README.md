@@ -7,7 +7,7 @@ This is a package in Rust that implements basics encryption algorithms. Details 
 | Name                   	| status     	|
 |------------------------	|------------	|
 | Caesar cipher          	|    done    	|
-| Transposition Cipher   	|   current   	|
+| Transposition Cipher   	|    done   	|
 | File encrypting        	| to be done 	|
 | Affine Cipher          	| to be done 	|
 | Simple Substitution    	| to be done 	|
@@ -15,3 +15,7 @@ This is a package in Rust that implements basics encryption algorithms. Details 
 | One-time Pad Cipher    	| to be done 	|
 | Generate Prime Numbers 	| to be done 	|
 | Public Key Cipher      	| to be done 	|
+
+### Dependencies
+
+num-traits = "0.2.14"
