@@ -1,14 +1,15 @@
-mod transp;
+mod sub;
 
-use transp::Columnar;
+use sub::Caesar;
+use sub::Translate;
+use std::fs;
 
 fn main() {
-    let cypher = Columnar {
+    let cypher = Caesar {
         key: 8,
     };
-
-    // let message = String::from("Behind every great fortune there is a crime.");
-    let message = String::from("T  eethachr e riywrgin eermdga ee rlia eetstbvah");
-    println!("{}", cypher.decrypt(&message));
-    // println!("{}", cypher.encrypt(&message));
+    let contents = fs::read_to_string("/home/lucas/projects/cyphers/crimeAndPunishment.txt").unwrap();
+    let encrypt_text = cypher.encrypt(&contents);
+    let new_file = "/home/lucas/projects/cyphers/crimeAndPunishment.encrypt.txt";
+    fs::write(new_file, encrypt_text).unwrap();
 }
