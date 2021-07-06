@@ -1,4 +1,4 @@
-const LETTERS: &str = "abcdefghijklmnopqrstuvwxyz";
+const LETTERS: &str = "abcdefghijklmnopqrstuvwxyz1234567890!?.";
 
 pub struct Caesar {
     pub key: i32
