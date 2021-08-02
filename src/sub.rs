@@ -99,3 +99,34 @@ impl Translate for Vigenere {
         result
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    const ORIGINAL_TEST: &str = "the quick brown fox jumped over the lazy dog";
+
+    #[test]
+    fn caesar_encrypt_decrypt() {
+        let ins = Caesar { key: 3 };
+
+        let encrypted = ins.encrypt(ORIGINAL_TEST);
+        let decrypted = ins.decrypt(&encrypted);
+
+        assert_eq!(encrypted, "wkh txlfn eurzq ira mxpshg ryhu wkh odcb grj");
+        assert_eq!(decrypted, ORIGINAL_TEST);
+    }
+
+    #[test]
+    fn vigenere_encrypt_decrypt() {
+        let ins = Vigenere {
+            key: "secret".into(),
+        };
+
+        let encrypted = ins.encrypt(ORIGINAL_TEST);
+        let decrypted = ins.decrypt(&encrypted);
+
+        assert_eq!(encrypted, "?lg 8y2uo d9sc6 jqb na5tgu sbwv vyi 5s41 usz");
+        assert_eq!(decrypted, ORIGINAL_TEST)
+    }
+}

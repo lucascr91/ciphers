@@ -49,3 +49,21 @@ impl Columnar {
         result
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    const ORIGINAL_TEST: &str = "the quick brown fox jumped over the lazy dog";
+
+    #[test]
+    fn columnar_encrypt_decrypt() {
+        let ins = Columnar { key: 7 };
+
+        let encrypted = ins.encrypt(ORIGINAL_TEST);
+        let decrypted = ins.decrypt(&encrypted);
+
+        assert_eq!(encrypted, "tcnuv ohk melge fpra boe zqrxdtyuo  h iwjoed");
+        assert_eq!(decrypted, ORIGINAL_TEST);
+    }
+}
