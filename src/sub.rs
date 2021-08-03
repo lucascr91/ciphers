@@ -30,8 +30,7 @@ impl Translate for Caesar {
             if LETTERS.contains(letter) {
                 if mode == "encrypt" {
                     let new_letter = std::char::from_u32(
-                        ((((letter as u32) as i32 + self.key - 97) as i32).rem_euclid(26) + 97)
-                            as u32,
+                        ((letter as i32 + self.key - 97).rem_euclid(26) + 97) as u32,
                     );
                     assert!(
                         new_letter.is_some(),
@@ -41,8 +40,7 @@ impl Translate for Caesar {
                     result.push(new_letter.unwrap());
                 } else if mode == "decrypt" {
                     let new_letter = std::char::from_u32(
-                        ((((letter as u32) as i32 - self.key - 97) as i32).rem_euclid(26) + 97)
-                            as u32,
+                        ((letter as i32 - self.key - 97).rem_euclid(26) + 97) as u32,
                     );
                     assert!(
                         new_letter.is_some(),
